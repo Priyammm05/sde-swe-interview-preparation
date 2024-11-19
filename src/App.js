@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const problems = [
   {
     id: 1,
     name: "Minimum Consecutive Cards to Pick Up",
-    pattern: "General",
+    pattern: "Arrays",
     difficulty: "Medium",
     count: 1,
     link: "https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/",
@@ -4861,26 +4861,19 @@ const problems = [
     approach:
       "General strategy or common algorithm approach for the problem type",
   },
+  {
+    id: 488,
+    name: "Two Sum",
+    pattern: "Arrays",
+    difficulty: "Easy",
+    count: 44,
+    link: "https://leetcode.com/problems/two-sum/",
+    approach:
+      "General strategy or common algorithm approach for the problem type",
+  },
 ];
 
 // Group problems by pattern and difficulty
-const groupProblems = (problems) => {
-  const grouped = {};
-
-  problems.forEach((problem) => {
-    if (!grouped[problem.pattern]) {
-      grouped[problem.pattern] = {
-        Easy: [],
-        Medium: [],
-        Hard: [],
-      };
-    }
-    grouped[problem.pattern][problem.difficulty].push(problem);
-  });
-
-  return grouped;
-};
-
 const difficultyColors = {
   Easy: { bg: "#dcfce7", text: "#166534" },
   Medium: { bg: "#fef3c7", text: "#92400e" },
@@ -4903,6 +4896,9 @@ const styles = {
     marginBottom: "16px",
     paddingBottom: "8px",
     borderBottom: "2px solid #e5e7eb",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
   difficultySection: {
     marginBottom: "24px",
@@ -4958,17 +4954,11 @@ const styles = {
     backgroundColor: "#f3f4f6",
     color: "#4b5563",
   },
-  countTag: {
-    backgroundColor: "#dbeafe",
-    color: "#1e40af",
-  },
-  actionButton: {
-    padding: "8px",
-    border: "1px solid #3b82f6",
+  difficultyTag: {
     borderRadius: "4px",
-    color: "#3b82f6",
-    cursor: "pointer",
-    backgroundColor: "transparent",
+    padding: "4px 8px",
+    color: "#fff",
+    fontWeight: "bold",
   },
   approach: {
     marginTop: "12px",
@@ -4988,7 +4978,7 @@ const styles = {
     fontSize: "18px",
     fontWeight: "600",
     color: "#1f2937",
-    marginBottom: "16px",
+    marginBottom: "8px",
   },
   statsGrid: {
     display: "grid",
@@ -5001,23 +4991,30 @@ const styles = {
     borderRadius: "8px",
     boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
   },
-  difficultyStats: {
-    display: "flex",
-    gap: "8px",
-    marginTop: "8px",
-  },
-  difficultyBadge: {
-    padding: "2px 6px",
+  searchBar: {
+    padding: "10px",
     borderRadius: "4px",
-    fontSize: "12px",
+    marginBottom: "20px",
+    width: "100%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    border: "1px solid #e5e7eb",
+  },
+  height: {
+    height: "10px",
   },
 };
 
-const ProblemCard = ({ problem }) => (
+const ProblemCard = ({ problem, solved, toggleSolve }) => (
   <div style={styles.card}>
     <div style={styles.header}>
       <div style={styles.titleSection}>
-        <input type="checkbox" style={styles.checkbox} />
+        <input
+          type="checkbox"
+          style={styles.checkbox}
+          checked={solved}
+          onChange={() => toggleSolve(problem.id)}
+        />
         <div>
           <a
             href={problem.link}
@@ -5028,8 +5025,15 @@ const ProblemCard = ({ problem }) => (
             {problem.name}
           </a>
           <div style={styles.tags}>
-            <span style={{ ...styles.tag, ...styles.countTag }}>
-              Count: {problem.count}
+            <span
+              style={{
+                ...styles.tag,
+                ...styles.difficultyTag,
+                backgroundColor: difficultyColors[problem.difficulty].bg,
+                color: difficultyColors[problem.difficulty].text,
+              }}
+            >
+              {problem.difficulty}
             </span>
           </div>
         </div>
@@ -5044,66 +5048,124 @@ const ProblemCard = ({ problem }) => (
 );
 
 const ProblemList = () => {
-  const groupedProblems = groupProblems(problems);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [solvedProblems, setSolvedProblems] = useState(
+    JSON.parse(localStorage.getItem("solvedProblems")) || []
+  );
+
+  useEffect(() => {
+    localStorage.setItem("solvedProblems", JSON.stringify(solvedProblems));
+  }, [solvedProblems]);
+
+  const handleSearch = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  const toggleSolve = (id) => {
+    const updatedSolvedProblems = solvedProblems.includes(id)
+      ? solvedProblems.filter((problemId) => problemId !== id)
+      : [...solvedProblems, id];
+
+    setSolvedProblems(updatedSolvedProblems);
+  };
+
+  // Filter problems based on search query
+  const filteredProblems = problems.filter(
+    (problem) =>
+      problem.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      problem.pattern.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Group problems by pattern and sort by difficulty (Easy, Medium, Hard)
+  const groupedProblems = filteredProblems.reduce((groups, problem) => {
+    const { pattern } = problem;
+    if (!groups[pattern]) {
+      groups[pattern] = {
+        problems: [],
+        counts: { Easy: 0, Medium: 0, Hard: 0 },
+      };
+    }
+    groups[pattern].problems.push(problem);
+    groups[pattern].counts[problem.difficulty]++;
+    return groups;
+  }, {});
+
+  const totalSolved = solvedProblems.length;
 
   return (
     <div style={styles.container}>
-      {Object.entries(groupedProblems).map(([pattern, difficulties]) => (
-        <div key={pattern} style={styles.patternSection}>
-          <h2 style={styles.patternTitle}>{pattern}</h2>
+      <h1
+        style={{
+          textAlign: "center",
+          fontSize: "28px",
+          fontWeight: "bold",
+          marginBottom: "20px",
+        }}
+      >
+        SDE / SWE DSA QUESTIONS
+      </h1>
 
-          {Object.entries(difficulties).map(
-            ([difficulty, problemList]) =>
-              problemList.length > 0 && (
-                <div key={difficulty} style={styles.difficultySection}>
-                  <h3
-                    style={{
-                      ...styles.difficultyTitle,
-                      borderLeftColor: difficultyColors[difficulty].bg,
-                    }}
-                  >
-                    {difficulty} ({problemList.length})
-                  </h3>
-                  {problemList.map((problem) => (
-                    <ProblemCard key={problem.id} problem={problem} />
-                  ))}
-                </div>
-              )
-          )}
-        </div>
-      ))}
+      <input
+        type="text"
+        placeholder="Search problems..."
+        style={styles.searchBar}
+        value={searchQuery}
+        onChange={handleSearch}
+      />
 
+      {/* Display total number of problems solved */}
       <div style={styles.stats}>
-        <h2 style={styles.statsTitle}>Problem Statistics</h2>
-        <div style={styles.statsGrid}>
-          {Object.entries(groupedProblems).map(([pattern, difficulties]) => {
-            const totalProblems = Object.values(difficulties).flat().length;
-            return (
-              <div key={pattern} style={styles.statCard}>
-                <div style={styles.statLabel}>{pattern}</div>
-                <div style={styles.statValue}>{totalProblems}</div>
-                <div style={styles.difficultyStats}>
-                  {Object.entries(difficulties).map(
-                    ([difficulty, problems]) =>
-                      problems.length > 0 && (
-                        <span
-                          key={difficulty}
-                          style={{
-                            ...styles.difficultyBadge,
-                            backgroundColor: difficultyColors[difficulty].bg,
-                            color: difficultyColors[difficulty].text,
-                          }}
-                        >
-                          {difficulty}: {problems.length}
-                        </span>
-                      )
-                  )}
-                </div>
-              </div>
-            );
-          })}
+        <div style={styles.statsTitle}>
+          Total Problems Solved: {totalSolved} / {problems.length}
         </div>
       </div>
+
+      <div style={styles.height}></div>
+
+      {/* Display grouped problems */}
+      {Object.keys(groupedProblems).map((pattern) => {
+        const patternData = groupedProblems[pattern];
+        const totalPatternSolved = patternData.problems.filter((problem) =>
+          solvedProblems.includes(problem.id)
+        ).length;
+
+        return (
+          <div key={pattern} style={styles.patternSection}>
+            <div style={styles.patternTitle}>
+              {pattern} ({patternData.problems.length})
+              <span>Total Solved: {totalPatternSolved}</span>
+            </div>
+
+            {["Easy", "Medium", "Hard"].map((difficulty) => {
+              const problemsByDifficulty = patternData.problems.filter(
+                (problem) => problem.difficulty === difficulty
+              );
+              const solvedCount = problemsByDifficulty.filter((problem) =>
+                solvedProblems.includes(problem.id)
+              ).length;
+
+              return (
+                problemsByDifficulty.length > 0 && (
+                  <div key={difficulty} style={styles.difficultySection}>
+                    <div style={styles.difficultyTitle}>
+                      {difficulty} ({problemsByDifficulty.length}) - Solved:{" "}
+                      {solvedCount}
+                    </div>
+                    {problemsByDifficulty.map((problem) => (
+                      <ProblemCard
+                        key={problem.id}
+                        problem={problem}
+                        solved={solvedProblems.includes(problem.id)}
+                        toggleSolve={toggleSolve}
+                      />
+                    ))}
+                  </div>
+                )
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 };
