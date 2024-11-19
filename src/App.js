@@ -25,7 +25,7 @@ const problems = [
     id: 3,
     name: "Find the Difference of Two Arrays",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 1,
     link: "https://leetcode.com/problems/find-the-difference-of-two-arrays/",
     approach:
@@ -35,7 +35,7 @@ const problems = [
     id: 4,
     name: "Find All K-Distant Indices in an Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 1,
     link: "https://leetcode.com/problems/find-all-k-distant-indices-in-an-array/",
     approach:
@@ -44,7 +44,7 @@ const problems = [
   {
     id: 5,
     name: "Most Frequent Number Following Key In an Array",
-    pattern: "Arrays",
+    pattern: "Easy",
     difficulty: "Medium",
     count: 1,
     link: "https://leetcode.com/problems/most-frequent-number-following-key-in-an-array/",
@@ -115,7 +115,7 @@ const problems = [
     id: 12,
     name: "Find Target Indices After Sorting Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 4,
     link: "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
     approach:
@@ -155,7 +155,7 @@ const problems = [
     id: 16,
     name: "Convert 1D Array Into 2D Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 1,
     link: "https://leetcode.com/problems/convert-1d-array-into-2d-array/",
     approach:
@@ -215,7 +215,7 @@ const problems = [
     id: 22,
     name: "Concatenation of Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 4,
     link: "https://leetcode.com/problems/concatenation-of-array/",
     approach:
@@ -225,7 +225,7 @@ const problems = [
     id: 23,
     name: "Build Array from Permutation",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 2,
     link: "https://leetcode.com/problems/build-array-from-permutation/",
     approach:
@@ -465,7 +465,7 @@ const problems = [
     id: 48,
     name: "Sort Array by Increasing Frequency",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 2,
     link: "https://leetcode.com/problems/sort-array-by-increasing-frequency/",
     approach:
@@ -485,7 +485,7 @@ const problems = [
     id: 50,
     name: "Mean of Array After Removing Some Elements",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 1,
     link: "https://leetcode.com/problems/mean-of-array-after-removing-some-elements/",
     approach:
@@ -495,7 +495,7 @@ const problems = [
     id: 51,
     name: "Special Array With X Elements Greater Than or Equal X",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 1,
     link: "https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/",
     approach:
@@ -575,7 +575,7 @@ const problems = [
     id: 59,
     name: "Minimum Number of Increments on Subarrays to Form a Target Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Hard",
     count: 4,
     link: "https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/",
     approach:
@@ -835,7 +835,7 @@ const problems = [
     id: 85,
     name: "Rank Transform of an Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 2,
     link: "https://leetcode.com/problems/rank-transform-of-an-array/",
     approach:
@@ -875,7 +875,7 @@ const problems = [
     id: 89,
     name: "Element Appearing More Than 25% In Sorted Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 2,
     link: "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
     approach:
@@ -1015,7 +1015,7 @@ const problems = [
     id: 103,
     name: "Relative Sort Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 2,
     link: "https://leetcode.com/problems/relative-sort-array/",
     approach:
@@ -1235,7 +1235,7 @@ const problems = [
     id: 125,
     name: "Squares of a Sorted Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 5,
     link: "https://leetcode.com/problems/squares-of-a-sorted-array/",
     approach:
@@ -1865,7 +1865,7 @@ const problems = [
     id: 188,
     name: "Split Array into Consecutive Subsequences",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Hard",
     count: 2,
     link: "https://leetcode.com/problems/split-array-into-consecutive-subsequences/",
     approach:
@@ -2955,7 +2955,7 @@ const problems = [
     id: 297,
     name: "Intersection of Two Arrays",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 3,
     link: "https://leetcode.com/problems/intersection-of-two-arrays/",
     approach:
@@ -3935,7 +3935,7 @@ const problems = [
     id: 395,
     name: "Find Minimum in Rotated Sorted Array II",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Hard",
     count: 2,
     link: "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/",
     approach:
@@ -4635,7 +4635,7 @@ const problems = [
     id: 465,
     name: "Remove Duplicates from Sorted Array",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Easy",
     count: 4,
     link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
     approach:
@@ -4835,7 +4835,7 @@ const problems = [
     id: 485,
     name: "Median of Two Sorted Arrays",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Hard",
     count: 14,
     link: "https://leetcode.com/problems/median-of-two-sorted-arrays/",
     approach:
