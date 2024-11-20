@@ -117,7 +117,7 @@ export const problems = [
     count: 4,
     link: "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Count Elements: Traverse nums to count the number of elements less than target (to find the starting position) and the number of times target appears.  Generate Indices: Create the indices starting from the lessCount position up to the count of target.",
   },
   {
     id: 13,
@@ -157,7 +157,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/convert-1d-array-into-2d-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Ensure the size of original matches m * n. If not, return an empty 2D array.   Create a 2D vector ans of size m by n.  Use nested loops and an index variable to transfer elements from original to ans row by row.   Return the populated 2D array.",
   },
   {
     id: 17,
@@ -217,7 +217,7 @@ export const problems = [
     count: 4,
     link: "https://leetcode.com/problems/concatenation-of-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "The problem asks to concatenate an array with itself. The optimal solution involves pre-allocating a result vector of size 2×n, where n is the size of the input array nums. Then, a single loop is used to copy each element of nums into the first half of the result vector, and the same elements into the second half i.e ans[i] = nums[i] and ans[n + i] = nums[i];.",
   },
   {
     id: 23,
