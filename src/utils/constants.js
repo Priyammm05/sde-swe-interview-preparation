@@ -37,7 +37,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/find-all-k-distant-indices-in-an-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Collect Key Indices: Traverse the array nums to collect all indices where nums[i] == key.\nUse Two Pointers: Use one pointer i to iterate through nums and another pointer j to traverse keyIndices. Move j to ensure it stays within the range of i - k.\nCheck Range Condition: If i is within distance k from any keyIndex[j] (i.e., |i - keyIndices[j]| <= k), add i to the result.\nOutput: Collect and return all valid indices directly, ensuring each index is only added once.",
   },
   {
     id: 5,
