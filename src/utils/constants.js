@@ -227,7 +227,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/build-array-from-permutation/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "The problem requires constructing an array ans where ans[i]=nums[nums[i]]. The optimal solution pre-allocates the result vector to avoid resizing overhead, computes the value for each index in O(1), and iterates through nums in O(n).",
   },
   {
     id: 24,
@@ -467,7 +467,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/sort-array-by-increasing-frequency/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "The task is to sort nums by increasing frequency and then by decreasing value for ties. The optimal solution counts the frequencies using a hash map and sorts the array directly with a custom comparator. ",
   },
   {
     id: 49,
@@ -487,7 +487,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/mean-of-array-after-removing-some-elements/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "The trimmed mean removes the smallest and largest 5% of elements from the array. The optimal approach sorts the array and calculates the sum of the remaining elements in-place, avoiding extra memory usage. This results in a time complexity of O(nlogn)",
   },
   {
     id: 51,
@@ -497,7 +497,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Sort the Array: Sorting helps identify the number of elements greater than or equal to any given value. Check Special Condition for Each Index: For each element in the sorted array, calculate how many elements are greater than or equal to it and check if it matches the condition. Return the Result: If a match is found, return the value; otherwise, return -1.",
   },
   {
     id: 52,
@@ -837,7 +837,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/rank-transform-of-an-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Copy and sort the array to determine the relative order of elements. Assign ranks to unique elements using a hash map.Replace each element in the original array with its corresponding rank.",
   },
   {
     id: 86,
@@ -877,7 +877,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/element-appearing-more-than-25-in-sorted-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use a hash map to track frequencies in O(n), and return the first element exceeding the threshold.",
   },
   {
     id: 90,
@@ -1017,7 +1017,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/relative-sort-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use a hash map to count the frequencies of each element in arr1. For each element in arr2, add it to the result the number of times it appears in arr1, then decrement its frequency. For the remaining elements in arr1, collect and sort them, then append to the result.",
   },
   {
     id: 104,
@@ -1237,7 +1237,7 @@ export const problems = [
     count: 5,
     link: "https://leetcode.com/problems/squares-of-a-sorted-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "use two pointer approach where get the leftNum and rightNum and check if leftNum is greater then put at the position else for the right and return the new array",
   },
   {
     id: 126,
@@ -2957,7 +2957,7 @@ export const problems = [
     count: 3,
     link: "https://leetcode.com/problems/intersection-of-two-arrays/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Hash set to store nums1 and then check the elements of nums2 is present in the set1 if yes then push it to set2 and return the converted vector from set2",
   },
   {
     id: 298,
