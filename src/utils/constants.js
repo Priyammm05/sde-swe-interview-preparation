@@ -4637,7 +4637,7 @@ export const problems = [
     count: 4,
     link: "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use i to track the last unique position and j to traverse the array. f nums[j] is different from nums[i], increment i and update nums[i] = nums[j]. he count of unique elements is i + 1, where i is the last index of unique elements.",
   },
   {
     id: 466,
@@ -4867,7 +4867,7 @@ export const problems = [
     count: 44,
     link: "https://leetcode.com/problems/two-sum/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Store each number and its index as you iterate. For each number, check if target - num exists in the map. If found, return the indices of the current number and its complement.",
   },
 ];
 
