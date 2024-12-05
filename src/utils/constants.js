@@ -7,7 +7,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/minimum-consecutive-cards-to-pick-up/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use a hash map to track the last occurrence of each card and compute distances efficiently in a single pass.",
   },
   {
     id: 2,
@@ -67,7 +67,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/all-divisions-with-the-highest-score-of-a-binary-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Count the total number of ones in the array (totalOnes). Set leftZero = 0 and rightOne = totalOnes. Traverse through the array, calculate the score as leftZero + rightOne. Keep track of the maximum score and the indices achieving it. Increment leftZero if the current element is 0 and decrement rightOne if it's 1.",
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/find-all-lonely-numbers-in-the-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use a hash map to count how many times each number appears. For each number in the array: Ensure it appears only once. Confirm x−1 and x+1 are absent. Add numbers meeting both conditions to the result list and return it.",
   },
   {
     id: 9,
@@ -177,7 +177,7 @@ export const problems = [
     count: 14,
     link: "https://leetcode.com/problems/find-original-array-from-doubled-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "If the array length is odd, return an empty array. Use a hash map to store how many times each number appears. Sort numbers to ensure smaller values are processed first. For each number, ensure it has a valid double. Add to the result and reduce frequencies. Output the constructed original array.",
   },
   {
     id: 19,
@@ -247,7 +247,7 @@ export const problems = [
     count: 3,
     link: "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Sort the Array to bring order. Use Two Pointers to pair smallest and largest numbers. Track Maximum Pair Sum during iterations. Return Maximum Pair Sum as the result.",
   },
   {
     id: 26,
@@ -587,7 +587,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Compute the running sum while iterating through the array. Maintain oddCount and evenCount to track how many prefix sums are odd or even. If the current prefix sum is odd, add evenCount + 1 to the result. If it's even, add oddCount to the result. Increment oddCount or evenCount based on the current prefix sum's parity. Keep the count modulo.",
   },
   {
     id: 61,
@@ -607,7 +607,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/range-sum-of-sorted-subarray-sums/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Use nested loops to compute sums of all subarrays and store them in a list. Sort the list of subarray sums in ascending order. Add up the values from index left-1 to right-1 in the sorted list. Return the sum modulo.",
   },
   {
     id: 63,
@@ -647,7 +647,7 @@ export const problems = [
     count: 1,
     link: "https://leetcode.com/problems/the-k-strongest-values-in-an-array/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Sort the array to find the median: median=arr[(n−1)/2]. Use two pointers (left at the start and right at the end) to compare strengths: choose the stronger element (based on absolute difference from the median or value tie-breaker). Repeat k times, moving pointers as elements are added to the result.",
   },
   {
     id: 67,
@@ -697,7 +697,7 @@ export const problems = [
     count: 2,
     link: "https://leetcode.com/problems/build-an-array-with-stack-operations/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Initialize curr = 1 and keeps track of the current number being pushed. For each num in target, simulate pushing and popping for all numbers less than num. Once curr equals num, push Push and increment curr. Return the sequence of operations.",
   },
   {
     id: 72,
@@ -707,7 +707,7 @@ export const problems = [
     count: 3,
     link: "https://leetcode.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/",
     approach:
-      "General strategy or common algorithm approach for the problem type",
+      "Set left = 0 and use maxDeque (decreasing order) and minDeque (increasing order) for indices. For each right, add to deques while maintaining order. If |max - min| > limit, increment left and remove out-of-range indices from deques. Update maxLength = max(maxLength, right - left + 1). Return maxLength.",
   },
   {
     id: 73,
