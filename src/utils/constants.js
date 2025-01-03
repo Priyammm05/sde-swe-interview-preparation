@@ -2643,7 +2643,7 @@ export const problems = [
     id: 266,
     name: "Split Array Largest Sum",
     pattern: "Arrays",
-    difficulty: "Medium",
+    difficulty: "Hard",
     count: 8,
     link: "https://leetcode.com/problems/split-array-largest-sum/",
     approach:
